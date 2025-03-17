@@ -56,7 +56,7 @@ tidy_books <- austen_books() %>%
 
 3. Graph of words that contribute to positive and negative sentiment in the books of Jane Austen:
 <div align = "center">
-<img src = "https://github.com/TJB84/Data332/blob/main/sentiment_analysis/text_analysis/sentiments.png" width = "600")>
+<img src = "https://github.com/TJB84/Data332/blob/main/sentiment_analysis/text_analysis/counts.png" width = "600")>
 </div>
         
 - Miss is the main contributor of negative sentiment.
