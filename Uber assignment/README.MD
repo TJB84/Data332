@@ -50,3 +50,43 @@ uber_data <- uber_data %>%
 ```
 
 ---
+
+## 🖼️ UI Overview
+
+The UI is built using `tabsetPanel()` and organized into four main tabs:
+
+```r
+tabsetPanel(
+  tabPanel("Heatmap", ...),
+  tabPanel("Grid Heat Graph", ...),
+  tabPanel("Extra Charts", ...),
+  tabPanel("Extra Tables", ...)
+)
+```
+
+For example, the **color palette dropdown** in the "Grid Heat Graph" is alphabetized:
+
+```r
+selectInput("palette", "Select Color Palette:",
+            choices = sort(c("C", "D", "A", "B", "E")),
+            selected = "C")
+```
+
+---
+
+## 🧠 Server Logic
+
+### 1. **Filtering**
+
+All visualizations use filtered data based on user selections:
+
+```r
+filtered_data <- reactive({
+  data <- uber_data
+  if (input$month != "All") data <- data %>% filter(Month == as.numeric(input$month))
+  if (input$day != "All") data <- data %>% filter(Day == as.numeric(input$day))
+  if (input$hour != "All") data <- data %>% filter(Hour == as.numeric(input$hour))
+  data
+})
+```
+
